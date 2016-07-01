@@ -5,7 +5,7 @@
 
 Then you can use `RNHypertext` in place of `Text` component from react-native. Or you should just use `Text`.
 
-# Usage
+## Usage
 
 ```
 import RNHypertext from 'rn-hypertext'
@@ -17,3 +17,7 @@ export default class extends React.Component {
   }
 }
 ```
+
+## screenshot
+
+![rn-hypertext](react-native-rnhypertext.gif)
