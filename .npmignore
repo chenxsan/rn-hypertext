@@ -1,1 +1,5 @@
 .babelrc
+test
+.vscode
+tsconfig.json
+react-native-rnhypertext.gif
