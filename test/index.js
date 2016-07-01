@@ -2,6 +2,7 @@
 import { expect } from 'chai'
 import React from 'react'
 import { Text } from 'react-native'
+import Link from '../components/Link'
 import { shallow } from 'enzyme'
 import RNHyperText from '../index'
 describe('<RNHyperText />', () => {
@@ -11,19 +12,22 @@ describe('<RNHyperText />', () => {
     expect(wrapper.find(Text)).to.have.length(1)
   })
 
-  it('should render link', () => {
+  it('should render Link', () => {
     const wrapper = shallow(<RNHyperText>what is that http://www.google.com</RNHyperText>)
-    expect(wrapper.find(Text)).to.have.length(3)
-  })
-
-  it('should render links', () => {
-    const wrapper = shallow(<RNHyperText>https://www.zfanw.com 什么鬼what is that http://www.google.com，我不知道。</RNHyperText>)
-    expect(wrapper.find(Text)).to.have.length(5)
-  })
-
-  it('should render link text', () => {
-    const wrapper = shallow(<RNHyperText>https://www.zfanw.com</RNHyperText>)
     expect(wrapper.find(Text)).to.have.length(2)
+    expect(wrapper.find(Link)).to.have.length(1)
+  })
+
+  it('should render Links', () => {
+    const wrapper = shallow(<RNHyperText>https://www.zfanw.com 什么鬼what is that http://www.google.com，我不知道。</RNHyperText>)
+    expect(wrapper.find(Text)).to.have.length(3)
+    expect(wrapper.find(Link)).to.have.length(2)
+  })
+
+  it('should render Link with text', () => {
+    const wrapper = shallow(<RNHyperText>https://www.zfanw.com</RNHyperText>)
+    expect(wrapper.find(Text)).to.have.length(1)
+    expect(wrapper.find(Link)).to.have.length(1)
     expect(wrapper.find({
       style: {
         color: 'blue'

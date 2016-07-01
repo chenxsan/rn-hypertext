@@ -1,8 +1,13 @@
 'use strict'
 import React from 'react'
 import { Text, Linking } from 'react-native'
+import Link from './components/Link'
 const urlReg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/gi
+
 export default class RNHyperText extends React.Component {
+  openURL = (url) => {
+    this.props.onPress(url)
+  }
   render () {
     let body = []
     const str = this.props.children
@@ -18,10 +23,10 @@ export default class RNHyperText extends React.Component {
         urls.forEach((url) => {
           let index = str.indexOf(url)
           if (index === 0) {
-            body.push(<Text {...this.props} onPress={() => Linking.openURL(url)} key={index + url.length} style={{...this.props.linkStyle}}>{str.substring(index, index + url.length)}</Text>)
+            body.push(<Link {...this.props} url={url} onPress={this.openURL} key={index + url.length} style={{...this.props.linkStyle}}>{str.substring(index, index + url.length)}</Link>)
           } else {
             body.push(<Text {...this.props} key={index}>{str.substring(lastIndex, index)}</Text>)
-            body.push(<Text {...this.props} onPress={() => Linking.openURL(url)} key={index + url.length} style={{...this.props.linkStyle}}>{str.substring(index, index + url.length)}</Text>)
+            body.push(<Link {...this.props} url={url} onPress={this.openURL} key={index + url.length} style={{...this.props.linkStyle}}>{str.substring(index, index + url.length)}</Link>)
           }
           lastIndex = index + url.length
         })
@@ -47,5 +52,7 @@ RNHyperText.defaultProps = {
     color: 'blue'
   },
   children: '',
-  onPress: () => {}
+  onPress: (url) => {
+    Linking.openURL(url)
+  }
 }
