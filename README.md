@@ -18,6 +18,17 @@ export default class extends React.Component {
 }
 ```
 
+## Props
+
+You can customize link style `linkStyle` prop:
+
+```
+<RNHypertext linkStyle={{
+  color: 'red',
+  fontSize: 20
+}}>test</RNHypertext>
+```
+
 ## screenshot
 
 ![rn-hypertext](react-native-rnhypertext.gif)
