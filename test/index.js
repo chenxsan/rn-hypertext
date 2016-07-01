@@ -1,7 +1,7 @@
 'use strict'
 import { expect } from 'chai'
 import React from 'react'
-import { Text, Linking } from 'react-native'
+import { Text } from 'react-native'
 import { shallow } from 'enzyme'
 import RNHyperText from '../index'
 describe('<RNHyperText />', () => {
