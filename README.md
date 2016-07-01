@@ -20,7 +20,7 @@ export default class extends React.Component {
 
 ## Props
 
-You can customize link style `linkStyle` prop:
+You can customize link style with `linkStyle` prop:
 
 ```
 <RNHypertext linkStyle={{
