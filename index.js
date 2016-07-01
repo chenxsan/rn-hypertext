@@ -3,11 +3,6 @@ import React from 'react'
 import { Text, Linking } from 'react-native'
 const urlReg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/gi
 export default class RNHyperText extends React.Component {
-  static defaultProps = {
-    linkStyle: {
-      color: 'blue'
-    }
-  }
   render () {
     let body = []
     const str = this.props.children
@@ -28,7 +23,6 @@ export default class RNHyperText extends React.Component {
             body.push(<Text {...this.props} key={index}>{str.substring(lastIndex, index)}</Text>)
             body.push(<Text {...this.props} onPress={() => Linking.openURL(url)} key={index + url.length} style={{...this.props.linkStyle}}>{str.substring(index, index + url.length)}</Text>)
           }
-          
           lastIndex = index + url.length
         })
         if (lastIndex < str.length) {
@@ -36,7 +30,6 @@ export default class RNHyperText extends React.Component {
         }
       }
     }
-    console.log(body)
     return (
       <Text>
         {body}
@@ -45,5 +38,14 @@ export default class RNHyperText extends React.Component {
   }
 }
 RNHyperText.propTypes = {
-  children: React.PropTypes.string.isRequired
+  children: React.PropTypes.string.isRequired,
+  linkStyle: React.PropTypes.object,
+  onPress: React.PropTypes.func
+}
+RNHyperText.defaultProps = {
+  linkStyle: {
+    color: 'blue'
+  },
+  children: '',
+  onPress: () => {}
 }
