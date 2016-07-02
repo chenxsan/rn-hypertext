@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chenxsan/rn-hypertext.svg?branch=master)](https://travis-ci.org/chenxsan/rn-hypertext)
+
 # React native hypertext
 
 1. You have urls (http or https) in plain texts
