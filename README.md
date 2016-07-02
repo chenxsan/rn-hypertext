@@ -31,6 +31,8 @@ You can customize link style with `linkStyle` prop:
 }}>test</RNHypertext>
 ```
 
-## screenshot
+![linkStyle prop](react-native-rn-hypertext-linkStyle.png)
+
+## Demo
 
 ![rn-hypertext](react-native-rnhypertext.gif)
