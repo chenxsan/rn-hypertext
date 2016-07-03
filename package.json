@@ -1,6 +1,6 @@
 {
   "name": "rn-hypertext",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Text component replacement for rendering clickable urls in react-native.",
   "main": "index.js",
   "scripts": {
