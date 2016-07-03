@@ -19,7 +19,7 @@ export default class RNHyperText extends React.Component {
       let urls = str.match(urlReg)
       let lastIndex = 0
       if (urls === null) {
-        return <Text {...this.props}>{this.props.children}</Text>
+        return <Text {...this.props} onPress={this.onPressPlainText}>{this.props.children}</Text>
       } else {
         urls.forEach((url) => {
           let index = str.indexOf(url)
