@@ -28,15 +28,5 @@ describe('<RNHyperText />', () => {
     const wrapper = shallow(<RNHyperText>https://www.zfanw.com</RNHyperText>)
     expect(wrapper.find(Text)).to.have.length(1)
     expect(wrapper.find(Link)).to.have.length(1)
-    expect(wrapper.find({
-      style: {
-        color: 'blue'
-      }
-    }).props().children).to.equal('https://www.zfanw.com')
-    expect(wrapper.find({
-      style: {
-        color: 'blue'
-      }
-    }).prop('onPress')).to.be.a('function')
   })
 })

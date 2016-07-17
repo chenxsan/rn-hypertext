@@ -15,9 +15,4 @@ Link.propTypes = {
   url: React.PropTypes.string.isRequired,
   onPress: React.PropTypes.func.isRequired
 }
-Link.defaultProps = {
-  children: '',
-  url: '',
-  onPress: () => {}
-}
 export default Link
